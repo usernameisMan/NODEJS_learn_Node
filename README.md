@@ -15,6 +15,8 @@
     fs.rename(PATH,toName,FUN(err));
     查看文件状态
     fs.stat(PATH, FUN(err, stat));
+    // 判断文件是否存在
+    fs.exists(PATH, FUN(exists);
   ```
 #### Timers
   定时器

@@ -1,9 +1,9 @@
 # 核心概念 
-###<Timers /Buffer / Events / Stream / Modules / Errors / fs>
+### Timers /Buffer / Events / Stream / Modules / Errors / fs
 
 
 #### fs
-  <文件操作>
+  文件操作
   ```js
     //读取文件
     fs.readFile(PATH,encoding,FUN(err,data));
@@ -11,7 +11,11 @@
     fs.writeFile(PATH,FUN(err));
     //删除文件
     fs.fs.unlink(PATH,FUN(err));
-  ```
+    //修改文件名字
+    fs.rename(PATH,toName,FUN(err));
+    //查看文件状态
+    fs.stat(PATH, FUN(err, stat));
+    ```
 #### Timers
   定时器
 

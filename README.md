@@ -5,17 +5,17 @@
 #### fs
   文件操作
   ```js
-    //读取文件
+    读取文件
     fs.readFile(PATH,encoding,FUN(err,data));
-    //写入文件
+    写入文件
     fs.writeFile(PATH,FUN(err));
-    //删除文件
+    删除文件
     fs.fs.unlink(PATH,FUN(err));
-    //修改文件名字
+    修改文件名字
     fs.rename(PATH,toName,FUN(err));
-    //查看文件状态
+    查看文件状态
     fs.stat(PATH, FUN(err, stat));
-    ```
+  ```
 #### Timers
   定时器
 

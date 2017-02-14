@@ -23,6 +23,22 @@
 
 #### Buffer
   数据缓冲
+  ```js
+    //Buffer(对象),buf(实例)
+    //判断对象是否为 Buffer 返回 Boolean
+    Buffer.isBuffer(obj);
+    //判断 Buffer 对象编码 返回 Boolean
+    Buffer.isEncoding(encoding);
+    //返回 buf 在字节数上分配的内存量
+    buf.length
+    //一个参数的时候
+    //返回string在实例中第一次出现的位置
+    //第二个是起始位置
+    //第三个是编码
+    buf.indexOf(STRING,[byteOffset],[encoding])
+    //bug拷贝进到目标对象
+    buf.copy(targetObj,[targetObjStart],[sourceStart],[sourceEnd])
+  ```
 
 #### Events
   事件对象

@@ -51,3 +51,62 @@
 
 #### Errors
   错误捕获机制
+  
+#### HTTP
+
+```js
+     var http = require('http');
+     var querystring = require('querystring');
+     var options = {
+             host: 'xxx', // 这个不用说了, 请求地址
+             port:80,
+             path:path, // 具体路径, 必须以'/'开头, 是相对于host而言的
+             method: 'GET', // 请求方式, 这里以post为例
+             headers: { // 必选信息, 如果不知道哪些信息是必须的, 建议用抓包工具看一下, 都写上也无妨...
+                 'Content-Type': 'application/json'
+             }
+         };
+         http.get(options, function(res) {
+             var resData = "";
+             res.on("data",function(data){
+                 resData += data;
+             });
+             res.on("end", function() {
+                 callback(null,JSON.parse(resData));
+             });
+         })
+```
+POST
+```js
+    var http = require('http');
+    var querystring = require('querystring');
+    //json转换为字符串
+    var data = querystring.stringify({
+        id:"1",
+        pw:"hello"
+    });
+    var options = {
+        host: '115.29.45.194',
+    //    host:'localhost',
+    //    port: 14000,
+    //    path: '/v1?command=getAuthenticode',
+        path:'/callme/index.cfm/userService/command/getAuthenticode/',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': Buffer.byteLength(data)
+        }
+    };
+
+    var req = http.request(options, function(res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            console.log("body: " + chunk);
+        });
+        res.on('end',function(chunk){
+            console.log("body: " + chunk);
+        })
+    });
+    req.write(data);
+    req.end();
+```

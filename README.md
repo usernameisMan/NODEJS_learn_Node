@@ -111,3 +111,5 @@ POST
     req.write(data);
     req.end();
 ```
+进程管理
+ 在NodeJS中可以通过process.argv获取命令行参数。但是比较意外的是，node执行程序路径和主模块文件路径固定占据了argv[0]和argv[1]两个位置，而第一个命令  行参数从argv[2]开始

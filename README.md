@@ -46,7 +46,47 @@
      
 #### Stream
   数据流
+```js 
+        var fs = require('fs');
+        //data事件会源源不断地被触发，不管doSomething函数是否处理得过来。
+        //所以加上开始和暂停
+        const Path=null;
 
+        var rs = fs.createReadStream(Path);
+        rs.on('data', function (chunk) {
+            rs.pause(); //暂停流的读取。数据还是在流缓存里面
+            doSomething(chunk, function () {
+                rs.resume();//恢复流的读取
+            });
+        });
+
+        rs.on('end', function () {
+            cleanUp();
+        });
+
+
+        /**============== 只写数据=============**/
+        const Path=null;
+        const DST=null;//目标位置
+        var rs = fs.createReadStream(Path);
+        var ws = fs.createWriteStream(DST);
+
+        rs.on('data',function(chunk){
+            if(ws.write(chunk)==false){
+                rs.pause();
+            }
+        });
+
+        rs.on('end',function(){
+            ws.end();
+        });
+
+        ws.on('drain',function(){
+            rs.resume;
+        })
+
+        /*这些可以直接用.pipe方法来做这件事*/
+```
 #### Modules
   模块机制
 

@@ -4,8 +4,8 @@
 
 #### fs
   文件操作
-  ```js
-    // 读取文件
+  ```js
+    // 读取
     fs.readFile(PATH,encoding,FUN(err,data));
     // 写入文件
     fs.writeFile(PATH,FUN(err));

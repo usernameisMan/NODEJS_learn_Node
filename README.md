@@ -3,7 +3,7 @@
 
 
 #### fs
-  文件操作
+  文件 操作
   ```js
     // 读取
     fs.readFile(PATH,encoding,FUN(err,data));
@@ -22,7 +22,7 @@
   定时器
 
 #### Buffer
-  数据缓冲
+  数据 缓冲
   Buffer与字符串有一个重要区别。字符串是只读的，并且对字符串的任何修改得到的都是一个新字符串，原字符串保持不变。至于Buffer，更像是可以做指针操作的C   语言数组。例如，可以用[index]方式直接修改某个位置的字节。
   ```js
     //Buffer(对象),buf(实例)
@@ -42,7 +42,7 @@
   ```
 
 #### Events
-  事件对象
+  事件 对象
 ```js
           //event.js 文件
      var EventEmitter = require('events').EventEmitter; 
